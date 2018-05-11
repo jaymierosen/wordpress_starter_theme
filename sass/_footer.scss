@@ -1,3 +1,102 @@
-footer {
-	clear: both;
+//FOOTER
+
+footer.main-footer {
+	background-color: $lightgrey;
+	text-align: center;
+	padding: 30px 0;
+	clear: both; //for floats
+		.main-footer-logo img {
+			max-width: 15%;
+		}
+}
+
+	//NEWSLETTER
+
+	li#text-2.widget-container.widget_text {
+		@media screen and (max-width:480px) {
+			padding: 0 40px;
+		}
+		h3 {
+			font-size: 14px;
+			color: $black;
+			font-weight: 700;
+			text-transform: uppercase;
+			margin: 10px auto 20px auto;
+			letter-spacing: 0.1em;
+		}
+		.textwidget {
+			display: flex;
+			justify-content: center;
+				input[type="email"] {
+					box-shadow: 0 0 2px 1px $lightgrey;
+					border:none;
+					display: block;
+					font-size: 10px;
+					color: $grey;
+					margin: 0 0 40px 0;
+					height: 40px;
+					width: 25%;
+					padding-left: 15px;
+						@media screen and (max-width:480px) {
+							width: 100%;
+						}
+				}
+				input[type="email"] {
+					color: $grey;
+					font-size: 10px;
+					// padding: 0 0 0 5px;
+				}
+				input[type="submit"] {
+					background-color: $blush;
+					border: none;
+					margin: 0 0 0 1px;
+					color: $white;
+					font-size: 10px;
+					text-transform: uppercase;
+					height: 40px;
+					transition: $bg-transition;
+						&:hover {
+							background-color: $periwinkle;
+						}
+				}
+			}
+	}
+
+	//SOCIAL MEDIA MENU
+
+	ul.menu li a {
+	background-color: transparent;
+	color: $black;
+	font-size: 10px;
+	text-transform: uppercase;
+	transition: $color-transition;
+		&:hover {
+			color: $periwinkle;
+		}
+	}
+
+.copy {
+	padding: 50px 10px;
+	color: $grey;
+	font-size: 12px;
+	text-align: center;
+		a {
+			color: $black;
+			border-bottom: 1px solid $grey;
+			transition: 0.7s color ease;
+			&:hover {
+				color: $periwinkle
+			}
+		}
+}
+
+@media screen and (max-width:480px) {
+	ul#menu-social-media li {
+		display: block;
+		margin: 10px 0;
+			a {
+				font-size: 14px;
+			}
+	}
+
 }

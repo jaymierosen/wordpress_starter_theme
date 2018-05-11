@@ -1,11 +1,90 @@
 .sidebar {
-	width: 30%;
+	width: 31%;
 	float: left;
+	margin: 0 0 30px 1%;
+	padding: 20px;
+	background-color: $lightgrey;
+		@media screen and (max-width: 768px) {
+			width: 100%;
+			margin: 0;
+			float: left;
+			text-align: center;
+		}
+	h3 {
+		text-align: left;
+		font-size: 14px;
+				@media screen and (max-width: 768px) {
+					text-align: center;
+				}
+			&:before {
+				content: " | ";
+				display: inline-block;
+				color: $blush;
+				transform: rotate(-90deg);
+				margin-right: 30px;
+				margin-left: 10px;
+					@media screen and (max-width: 768px) {
+						content: "";
+						margin-right: 0;
+						margin-left: 0;
+					}
+			}
+	}
 	ul {
 		margin: 0;
 		padding: 0;
 		li {
 			list-style: none;
+				a {
+					color: $grey;
+					font-size: 12px;
+						&:first-child:before {
+							font-family: "FontAwesome";
+							content: "\f105";
+							margin: 0 8px 0 0;
+						}
+				}
 		}
 	}
 }
+
+.sidebar ul.xoxo input[type=submit] {
+	background-color: $blush;
+	padding: 10px;
+	margin: 30px auto;
+	border: none;
+	color: $white;
+	text-transform: uppercase;
+	font-size: 10px;
+	transition: $bg-transition;
+		&:hover {
+			background-color: $periwinkle;
+		}
+}
+
+.sidebar ul.xoxo input[type=search] {
+	padding: 5px 0 5px 10px;
+}
+
+.sidebar ul.xoxo input[type=search],
+.sidebar ul.xoxo input[type=submit]{
+	width: 100%;
+}
+
+.sidebar ul.xoxo input[type=search]::-webkit-input-placeholder{
+	font-size: 10px;
+}
+
+li.recentcomments {
+	font-size: 12px;
+}
+
+ul.instagram-pics.instagram-size-small li a:before {
+	content: " ";
+}
+
+p.clear {
+	margin: 20px 0 40px 0;
+}
+
+

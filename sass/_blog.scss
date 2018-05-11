@@ -1,0 +1,146 @@
+.content {
+	margin: 0;
+}
+
+.blog__content .blog {
+		p {
+			text-align: left;
+		}
+}
+
+.blog {
+	a {
+		color: $periwinkle;
+	}
+	h1.blog__h1 {
+		margin: 20px 0;
+			@media screen and (max-width: 350px) {
+				font-size: 20px;
+			}
+			&:before {
+			content: " | ";
+			display: inline-block;
+			color: $blush;
+			transform: rotate(-90deg);
+			margin-right: 30px;
+			margin-left: 10px;
+		}
+	}
+}
+
+.mini__hero__image--single {
+	text-transform: capitalize;
+	font-family: $serif;
+	color: $white;
+	letter-spacing: 0;
+	padding: 0 0 0 50px;
+	font-size: 40px;
+		@media screen and (max-width:480px) {
+			font-size: 30px;
+			text-align: center;
+			padding: 0;
+		}
+		&:before {
+			content: " | ";
+			display: inline-block;
+			color: $white;
+			transform: rotate(-90deg);
+			margin-right: 30px;
+			margin-left: 10px;
+		}
+}
+
+h1.entry-title {
+	margin-top: 0;
+}
+
+.entry__content {
+	p {
+		margin: 16px 0;
+	}
+	a {
+		color: $periwinkle;
+	}
+}
+
+.entry__meta {
+	margin: 10px 0;
+}
+
+.entry__meta h2,
+.entry__utility p {
+	font-size: 12px;
+	margin: 10px 0;
+		a {
+			color: $periwinkle;
+		}
+}
+
+p.nav-previous a,
+p.nav-next a {
+	color: $periwinkle;
+}
+
+.blog__post {
+		a.read__more {
+			background-color: $blush;
+			padding: 10px;
+			text-align: left;
+			display: inline-block;
+			width: 95px;
+			margin: 30px auto;
+			border: none;
+			color: $white;
+			text-transform: uppercase;
+			font-size: 10px;
+			transition: $bg-transition;
+				&:hover {
+					background-color: $periwinkle;
+				}
+		}
+		p.category {
+			border-bottom: 1px solid $lightgrey;
+			margin: 0 0 30px 0;
+			a {
+				padding: 5px;
+				display: inline-block;
+				margin: 0 0 10px 0;
+				color: $grey;
+				border: 1px solid $lightgrey;
+			}
+		}
+}
+
+//COMMENTS
+
+div#comments {
+	margin: 20px 0px;
+}
+
+h3#reply-title {
+	text-align: left;
+}
+
+p.logged-in-as a {
+	color: $periwinkle;
+}
+
+p.form-submit input[type="submit"].submit#submit {
+	background-color: $blush;
+	padding: 10px;
+	text-align: left;
+	display: inline-block;
+	margin: 20px 0;
+	border: none;
+	color: $white;
+	text-transform: uppercase;
+	font-size: 10px;
+	transition: $bg-transition;
+			&:hover {
+				background-color: $periwinkle;
+			}
+}
+
+p.comment-form-comment textarea {
+	resize: none;
+}

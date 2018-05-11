@@ -1,5 +1,23 @@
 <?php
 
+//Google fonts
+function wpb_add_google_fonts() {
+
+wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display', false );
+
+	wp_enqueue_style(
+		'flickity', 
+		'https://npmcdn.com/flickity@2.0/dist/flickity.css',
+		null,
+		null
+	);
+
+	wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+}
+
+add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
+
+
 /** Tell WordPress to run theme_setup() when the 'after_setup_theme' hook is run. */
 
 if ( ! function_exists( 'theme_setup' ) ):
@@ -27,6 +45,11 @@ function theme_setup() {
   * adding additional menus to the array. */
 	register_nav_menus( array(
 		'primary' => 'Primary Navigation'
+	) );
+
+	//social media menu
+	register_nav_menus( array(
+		'social' => 'Social Navigation'
 	) );
 
 	/*
@@ -81,11 +104,20 @@ function hackeryou_scripts() {
   wp_enqueue_script(
     'scripts', //handle
     get_template_directory_uri() . '/js/main.min.js', //source
-    array( 'jquery', 'plugins' ), //dependencies
+    array( 'jquery', 'plugins', 'flickity' ), //dependencies
     null, // version number
     true //load in footer
   );
+
+	wp_enqueue_script(
+		'flickity',
+		'https://npmcdn.com/flickity@2.0/dist/flickity.pkgd.min.js', //source
+		null, //version number
+		null //load in footer
+	);
 }
+
+
 
 add_action( 'wp_enqueue_scripts', 'hackeryou_scripts');
 
@@ -174,6 +206,17 @@ function hackeryou_widgets_init() {
 		'name' => 'Primary Widget Area',
 		'id' => 'primary-widget-area',
 		'description' => 'The primary widget area',
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+	//secondary widget for footer
+	register_sidebar( array(
+		'name' => 'Secondary Widget Area',
+		'id' => 'secondary-widget-area',
+		'description' => 'The secondary widget area',
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -281,3 +324,28 @@ function get_post_parent($post) {
 		return $post->ID;
 	}
 }
+
+//ACF OPTIONS PAGE
+if( function_exists('acf_add_options_page') ) {
+		acf_add_options_page();
+}
+
+//FEATURED IMAGES
+function born_featured_image_url($post) {
+	$image_id = get_post_thumbnail_id($post->ID); //$post is like an object, and id is a property of the image in the post
+	$image_url = wp_get_attachment_url($image_id); //gets the url from the media library
+
+	return $image_url; //returning is more valuable here so we can use it in multiple places
+}
+
+//post types
+add_theme_support('post-formats', array('aside', 'gallery', 'link', 'video', 'audio'));
+
+//video
+add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
+
+function custom_oembed_filter($html, $url, $attr, $post_ID) {
+    $return = '<div class="video-container">'.$html.'</div>';
+    return $return;
+}
+

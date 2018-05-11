@@ -1,7 +1,7 @@
 {
-  "name": "theme-hackeryou",
+  "name": "born",
   "version": "1.0.0",
-  "description": "A starter HackerYou theme",
+  "description": "Born for music",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

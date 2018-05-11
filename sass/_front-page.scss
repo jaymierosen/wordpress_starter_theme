@@ -1,0 +1,100 @@
+//HERO IMAGE
+
+.hero__image {
+	height: 80vh;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+			@media screen and (max-width: 420px) {
+				background-attachment: scroll;
+				height: 100%;
+				width: 100%;
+			}
+			h1 {
+				font-size: 150px;
+				color: white;
+				font-family: $serif;
+				font-weight: 300;
+				padding: 90px 0 0 0;
+				text-transform: capitalize;
+				letter-spacing: 0;
+					@media screen and (max-width: 768px) {
+							font-size: 95px;
+					}
+					@media screen and (max-width: 420px) {
+						padding: 56px 0;
+						font-size: 60px;
+					}
+			}
+			h2 {
+				color: $white;
+				font-size: 18px;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
+				border-bottom: 4px solid $white;
+				width: 20%;
+				margin: 0 auto;
+				padding: 5px 0;
+					@media screen and (max-width: 768px) {
+							width: 34%;
+							margin: 0 auto 40px auto;
+					}
+			}
+			h1,
+			h2 {
+				text-align: center;
+			}
+}
+
+//ABOUT
+
+section.about {
+		.bio {
+			padding: 20px;
+				p {
+					text-align: center;
+				}
+				button {
+					background-color: $blush;
+					padding: 10px;
+					margin: 30px auto;
+					display: block;
+					border: none;
+					color: $white;
+					text-transform: uppercase;
+					font-size: 10px;
+					transition: $bg-transition;
+						&:hover {
+							background-color: $periwinkle;
+						}
+				}
+	}
+}
+
+.gallery {
+		.gallery__item {
+			width: 20%;
+			float: left;
+				@media screen and (max-width: 768px) {
+					width: 100%;
+				}
+		}
+}
+
+//RELEASES
+
+section.releases {
+	background-color: green;
+}
+
+//NEWS
+
+section.news {
+	background-color: orange;
+}
+
+//CONTACT
+
+section.contact {
+	background-color: lightblue;
+}

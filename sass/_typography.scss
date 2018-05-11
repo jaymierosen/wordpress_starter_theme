@@ -1,15 +1,21 @@
 a {
-	color: #BA209B;
+	color: $periwinkle;
 	text-decoration: none;
 	&:hover {
-		color: #D424B1;
+		color: $periwinkle;
 	}
+}
+
+/*headings*/
+h2 {
+	margin: 20px 0;
 }
 
 /* paragraphs */
 
 p {
-	line-height: 1.5;
+	line-height: 1.8;
+	margin: 10px 0;
 }
 
 /*blockquotes*/
